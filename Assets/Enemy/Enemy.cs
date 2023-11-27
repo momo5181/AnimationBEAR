@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
-  Animator animator;
+ public Animator animator;
   public List<Transform> patrolWayPoints;
   public GameObject debugsphere; //代替玩家最位子
   public GameObject Player{get => player;} //取得玩家信息
   public Vector3 LastKnowPos{get=>lastKnowPos;set =>lastKnowPos=value;} 
   public NavMeshAgent Agent{get => agent;}
-//測試測試
+     public float moveSpeed=5f; // 这里的 5f 是一个示例速度，你可以根据需要调整
+
   private Vector3 lastKnowPos;  //取得玩家最後座標
   private StateMachine stateMachine;
   private NavMeshAgent agent;
@@ -32,11 +33,14 @@ public class Enemy : MonoBehaviour
     
   void Start()
   {
-    animator=GetComponent<Animator>();
+    animator = GetComponent<Animator>();
     stateMachine=GetComponent<StateMachine>();
     agent=GetComponent<NavMeshAgent>();
     stateMachine.Initialise();
     player=GameObject.FindGameObjectWithTag("Player");
+  
+      
+        
   }
 
   // Update is called once per frame
