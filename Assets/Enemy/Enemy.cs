@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
- public Animator animator;
+
   public List<Transform> patrolWayPoints;
   public GameObject debugsphere; //代替玩家最位子
   public GameObject Player{get => player;} //取得玩家信息
   public Vector3 LastKnowPos{get=>lastKnowPos;set =>lastKnowPos=value;} 
   public NavMeshAgent Agent{get => agent;}
-     public float moveSpeed=5f; // 这里的 5f 是一个示例速度，你可以根据需要调整
+  
 
   private Vector3 lastKnowPos;  //取得玩家最後座標
   private StateMachine stateMachine;
@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
     
   void Start()
   {
-    animator = GetComponent<Animator>();
+    
     stateMachine=GetComponent<StateMachine>();
     agent=GetComponent<NavMeshAgent>();
     stateMachine.Initialise();
@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
             {
             if(hitInfo.transform.gameObject==player)
             {
-            Debug.DrawRay(ray.origin,ray.direction*sightDistance);
+            Debug.DrawRay(ray.origin,ray.direction*sightDistance,Color.red);
             return true;
             }
           

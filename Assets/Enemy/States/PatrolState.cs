@@ -11,29 +11,11 @@ private Vector3 moveDirection;
  {
   
    
-  // if (enemy != null && enemy.animator != null)
-   // {
-   //    // enemy.animator.SetBool("isPatrolling", true);
-   // }
-  // else
-  //  {
-   //     Debug.LogError("Enemy or Animator is null.");
-   // }
-   //   if (enemy.animator != null)
-    //{
-      //  enemy.animator.SetBool("isPatrolling", true);
-    //}
-
-//enemy.animator.SetBool("isPatrolling", true);
  }
 
  public override void Exit()
  {
-    // if (enemy.animator != null)
-    //{
-    //    enemy.animator.SetBool("isPatrolling", false);
-   // }
-//enemy.animator.SetBool("isPatrolling", false);
+   
  }
 
  public override void Perform()
@@ -48,7 +30,7 @@ stateMachine.ChangeState(new AttackState());
  { 
      
 
-   if(enemy.Agent.remainingDistance<0.00001f)
+     if(enemy.Agent.remainingDistance<0.1f)
     {
        if(waypointIndex<enemy.patrolWayPoints.Count-1)
        
